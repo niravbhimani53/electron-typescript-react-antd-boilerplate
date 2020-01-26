@@ -1,0 +1,110 @@
+{
+  "name": "electron-typescript-react-antd-boilerplate",
+  "productName": "electron-typescript-react-antd-boilerplate",
+  "version": "0.0.1",
+  "description": "electronjs template",
+  "bin": "./setup.js",
+  "main": ".webpack/main",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "prettier": "prettier --check \"**/*.*\"",
+    "make": "electron-forge make",
+    "publishOnly": "electron-forge publish",
+    "fix:prettier": "prettier --write \"**/*.*\"",
+    "lint:fix": "eslint --quiet --ext .js,.tsx,.ts,.json --fix src/"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "electron-ts-react"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "plugins": [
+        [
+          "@electron-forge/plugin-webpack",
+          {
+            "mainConfig": "./webpack.main.config.js",
+            "renderer": {
+              "config": "./webpack.renderer.config.js",
+              "entryPoints": [
+                {
+                  "html": "./public/index.html",
+                  "js": "./src/renderer/renderer.tsx",
+                  "name": "main_window"
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@hot-loader/react-dom": "^16.11.0",
+    "antd": "^3.26.7",
+    "electron-squirrel-startup": "^1.0.0",
+    "file-loader": "^5.0.2",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "styled-components": "^5.0.0",
+    "url-loader": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@electron-forge/cli": "^6.0.0-beta.47",
+    "@electron-forge/maker-deb": "^6.0.0-beta.47",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.47",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.47",
+    "@electron-forge/maker-zip": "^6.0.0-beta.47",
+    "@electron-forge/plugin-webpack": "^6.0.0-beta.47",
+    "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
+    "@types/node": "^13.5.0",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "electron": "^7.1.10",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-config-react-app": "^5.1.0",
+    "eslint-plugin-flowtype": "^4.6.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "node-loader": "^0.6.0",
+    "react-hot-loader": "^4.12.19",
+    "style-loader": "^1.1.3",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5"
+  }
+}

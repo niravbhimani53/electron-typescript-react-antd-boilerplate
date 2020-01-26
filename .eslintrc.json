@@ -1,0 +1,55 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true,
+      "jsx": true
+    },
+    "useJSXTextNode": true,
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "react-app",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
+  "rules": {
+    "no-shadow": 1,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "linebreak-style": ["error", "unix"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-const-assign": "error",
+    "radix": "error",
+    "prefer-template": "error",
+    "prefer-const": "error",
+    "prefer-spread": "error",
+    "eqeqeq": ["error", "always"],
+    "semi": [2, "always"],
+    "default-case": 2,
+    "template-curly-spacing": 0, // Prettier.
+    "arrow-parens": 0, // Does not work with Flow generic types
+    "consistent-return": 0, // Flow.
+    // Prefer new line before return
+    // http://eslint.org/docs/rules/newline-before-return
+    "newline-before-return": "error",
+    "no-use-before-define": [
+      "error",
+      { "functions": false, "classes": false, "variables": true }
+    ],
+    // 'import/no-extraneous-dependencies': 0,
+    "import/extensions": 0,
+    "import/no-unresolved": 0,
+    "no-return-await": 0,
+    "no-restricted-syntax": 0,
+    "no-underscore-dangle": 0,
+    "import/first": 0,
+    "no-restricted-globals": 1,
+    "no-useless-escape": 1
+  }
+}
