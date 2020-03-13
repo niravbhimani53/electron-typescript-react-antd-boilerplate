@@ -3,7 +3,6 @@
   "productName": "electron-typescript-react-antd-boilerplate",
   "version": "0.0.1",
   "description": "electronjs template",
-  "bin": "./setup.js",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
